@@ -4,6 +4,7 @@ const urlsToCache = [
     '/scanner-pwa/index.html',
     '/scanner-pwa/app.js',
     '/scanner-pwa/manifest.json',
+    '/scanner-pwa/favicon.ico',
     '/scanner-pwa/icon-192.png',
     '/scanner-pwa/icon-512.png',
     'https://unpkg.com/@zxing/library@latest/umd/index.min.js'

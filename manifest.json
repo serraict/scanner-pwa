@@ -4,8 +4,8 @@
   "description": "A progressive web app for scanning QR codes and barcodes",
   "start_url": "/scanner-pwa/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#007bff",
+  "background_color": "#e8e8e8",
+  "theme_color": "#009279",
   "orientation": "portrait",
   "scope": "/scanner-pwa/",
   "icons": [
