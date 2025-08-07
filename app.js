@@ -3,8 +3,8 @@ class QRScanner {
         this.codeReader = new ZXing.BrowserMultiFormatReader();
         this.video = document.getElementById('video');
         this.toggleBtn = document.getElementById('toggleBtn');
-        this.result = document.getElementById('result');
-        this.resultText = document.getElementById('resultText');
+        this.results = document.getElementById('results');
+        this.resultsList = document.getElementById('resultsList');
         this.error = document.getElementById('error');
         
         this.isScanning = false;
@@ -33,7 +33,6 @@ class QRScanner {
     async startScanning() {
         try {
             this.hideError();
-            this.hideResult();
             this.updateStatus('Requesting camera access...');
             
             // Get camera constraints - prefer back camera on mobile
@@ -112,12 +111,37 @@ class QRScanner {
         this.toggleBtn.textContent = 'Start Camera';
         this.toggleBtn.className = 'btn-primary';
         this.updateStatus('Camera stopped');
-        this.hideResult();
     }
 
     showResult(text) {
-        this.resultText.textContent = text;
-        this.result.style.display = 'block';
+        // Create timestamp
+        const now = new Date();
+        const timestamp = now.toLocaleTimeString();
+        
+        // Create new result item
+        const resultItem = document.createElement('div');
+        resultItem.className = 'result-item';
+        resultItem.innerHTML = `
+            <div class="result-timestamp">${timestamp}</div>
+            <div>${text}</div>
+        `;
+        
+        // Add to top of results list
+        this.resultsList.insertBefore(resultItem, this.resultsList.firstChild);
+        
+        // Show results container
+        this.results.classList.add('has-results');
+        
+        // Auto-remove after 30 seconds
+        setTimeout(() => {
+            if (resultItem.parentNode) {
+                resultItem.remove();
+                // Hide results container if no more results
+                if (this.resultsList.children.length === 0) {
+                    this.results.classList.remove('has-results');
+                }
+            }
+        }, 30000);
         
         // Auto-copy to clipboard if available
         if (navigator.clipboard) {
@@ -127,17 +151,19 @@ class QRScanner {
         }
     }
 
-    hideResult() {
-        this.result.style.display = 'none';
-    }
-
     showError(message) {
-        this.error.textContent = message;
-        this.error.style.display = 'block';
+        if (this.error) {
+            this.error.textContent = message;
+            this.error.style.display = 'block';
+        } else {
+            console.error('Error element not found:', message);
+        }
     }
 
     hideError() {
-        this.error.style.display = 'none';
+        if (this.error) {
+            this.error.style.display = 'none';
+        }
     }
 
     updateStatus(message) {

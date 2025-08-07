@@ -104,7 +104,7 @@
             cursor: not-allowed;
         }
 
-        .result-container {
+        .results-container {
             background: white;
             border-radius: 8px;
             padding: 30px;
@@ -112,16 +112,27 @@
             width: 100%;
             max-width: 400px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: none;
         }
 
-        .result-container h3 {
+        .results-container.has-results {
+            display: block;
+        }
+
+        .results-container h3 {
             font-family: 'Liberation Sans', Arial, sans-serif;
             margin-bottom: 15px;
             color: #009279;
             font-size: 1.2rem;
         }
 
-        .result-text {
+        .results-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .result-item {
             word-break: break-all;
             background: #f8f9fa;
             padding: 15px;
@@ -129,6 +140,14 @@
             border-left: 4px solid #B5D334;
             font-family: 'Monaco', 'Menlo', monospace;
             font-size: 0.9rem;
+            position: relative;
+        }
+
+        .result-timestamp {
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 5px;
+            font-family: 'Liberation Sans', Arial, sans-serif;
         }
 
 
@@ -156,9 +175,9 @@
         </div>
 
 
-        <div id="result" class="result-container" style="display: none;">
-            <h3>Scan Result:</h3>
-            <div id="resultText" class="result-text"></div>
+        <div id="results" class="results-container">
+            <h3>Scan Results:</h3>
+            <div id="resultsList" class="results-list"></div>
         </div>
 
         <div id="error" class="error" style="display: none;"></div>
