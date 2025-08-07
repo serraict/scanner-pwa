@@ -157,6 +157,12 @@
                 padding: 15px;
             }
             
+            #video {
+                max-width: min(300px, 70vw);
+                max-height: 40vh;
+                object-fit: cover;
+            }
+            
             .controls {
                 flex-direction: column;
                 width: 100%;
@@ -171,6 +177,22 @@
             .result-container {
                 padding: 15px;
                 margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 480px) and (orientation: portrait) {
+            #video {
+                max-width: min(280px, 65vw);
+                max-height: 35vh;
+            }
+            
+            .camera-container {
+                padding: 10px 15px;
+            }
+            
+            .status {
+                margin: 15px 0;
+                font-size: 0.9rem;
             }
         }
     </style>
