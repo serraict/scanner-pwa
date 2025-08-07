@@ -1,6 +1,6 @@
 # QR Code Scanner PWA
 
-A progressive web app for scanning QR codes and barcodes using your device's camera.
+A progressive web app for scanning QR codes and bar codes using your device's camera.
 
 ## Features
 
@@ -39,6 +39,7 @@ This app can be installed as a native app on your mobile device for easy access 
 ### Android Installation
 
 #### Method 1: Chrome Browser (Recommended)
+
 1. **Open Chrome**: Navigate to the QR scanner app in Chrome browser
 2. **Look for Install Prompt**: Chrome may automatically show an "Add to Home screen" or "Install" banner
 3. **Manual Installation**: If no prompt appears, tap the three-dot menu (⋮) in the top right
@@ -46,12 +47,14 @@ This app can be installed as a native app on your mobile device for easy access 
 5. **Confirm Installation**: Tap "Add" or "Install" to confirm
 
 #### Method 2: Other Android Browsers
+
 1. **Open Browser**: Use Firefox, Samsung Internet, or other browsers
 2. **Browser Menu**: Tap the menu button (usually three lines or dots)
 3. **Add to Home Screen**: Look for "Add to Home screen" or similar option
-4. **Confirm**: Follow the prompts to add the app icon
+4. **Confirm**: Follow the prompts to add the app icon1
 
 **Features after installation:**
+
 - ✅ Works offline (after first use)
 - ✅ Full-screen experience without browser UI
 - ✅ Quick access from home screen
