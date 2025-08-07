@@ -2,8 +2,7 @@ class QRScanner {
     constructor() {
         this.codeReader = new ZXing.BrowserMultiFormatReader();
         this.video = document.getElementById('video');
-        this.startBtn = document.getElementById('startBtn');
-        this.stopBtn = document.getElementById('stopBtn');
+        this.toggleBtn = document.getElementById('toggleBtn');
         this.status = document.getElementById('status');
         this.result = document.getElementById('result');
         this.resultText = document.getElementById('resultText');
@@ -16,8 +15,7 @@ class QRScanner {
     }
 
     init() {
-        this.startBtn.addEventListener('click', () => this.startScanning());
-        this.stopBtn.addEventListener('click', () => this.stopScanning());
+        this.toggleBtn.addEventListener('click', () => this.toggleScanning());
         
         // Register service worker
         if ('serviceWorker' in navigator) {
@@ -57,8 +55,8 @@ class QRScanner {
             });
 
             this.updateStatus('Camera ready. Scanning for codes...');
-            this.startBtn.disabled = true;
-            this.stopBtn.disabled = false;
+            this.toggleBtn.textContent = 'Stop Camera';
+            this.toggleBtn.className = 'btn-secondary';
             this.isScanning = true;
 
             // Start continuous scanning
@@ -112,8 +110,8 @@ class QRScanner {
         this.video.srcObject = null;
         this.codeReader.reset();
         
-        this.startBtn.disabled = false;
-        this.stopBtn.disabled = true;
+        this.toggleBtn.textContent = 'Start Camera';
+        this.toggleBtn.className = 'btn-primary';
         this.updateStatus('Camera stopped');
         this.hideResult();
     }
@@ -145,6 +143,14 @@ class QRScanner {
 
     updateStatus(message) {
         this.status.textContent = message;
+    }
+
+    toggleScanning() {
+        if (this.isScanning) {
+            this.stopScanning();
+        } else {
+            this.startScanning();
+        }
     }
 }
 

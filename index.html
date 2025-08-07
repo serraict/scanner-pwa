@@ -146,35 +146,6 @@
             border-left: 4px solid #AD1B11;
         }
 
-        @media (max-width: 600px) {
-            body {
-                font-size: 16px;
-            }
-            
-            .header {
-                padding: 15px;
-            }
-            
-            .camera-container {
-                padding: 15px;
-            }
-            
-            .controls {
-                flex-direction: column;
-                width: 100%;
-                gap: 15px;
-            }
-            
-            button {
-                width: 100%;
-                padding: 1rem;
-            }
-            
-            .result-container {
-                padding: 15px;
-                margin-top: 15px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -186,8 +157,7 @@
         <video id="video" autoplay muted playsinline></video>
         
         <div class="controls">
-            <button id="startBtn" class="btn-primary">Start Camera</button>
-            <button id="stopBtn" class="btn-secondary" disabled>Stop Camera</button>
+            <button id="toggleBtn" class="btn-primary">Start Camera</button>
         </div>
 
         <div class="status" id="status">Click "Start Camera" to begin scanning</div>
