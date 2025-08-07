@@ -3,7 +3,6 @@ class QRScanner {
         this.codeReader = new ZXing.BrowserMultiFormatReader();
         this.video = document.getElementById('video');
         this.toggleBtn = document.getElementById('toggleBtn');
-        this.status = document.getElementById('status');
         this.result = document.getElementById('result');
         this.resultText = document.getElementById('resultText');
         this.error = document.getElementById('error');
@@ -142,7 +141,7 @@ class QRScanner {
     }
 
     updateStatus(message) {
-        this.status.textContent = message;
+        console.log(`QR Scanner: ${message}`);
     }
 
     toggleScanning() {

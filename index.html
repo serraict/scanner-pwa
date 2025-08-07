@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -130,12 +131,6 @@
             font-size: 0.9rem;
         }
 
-        .status {
-            text-align: center;
-            margin: 30px 0;
-            font-size: 1rem;
-            color: #666;
-        }
 
         .error {
             color: #AD1B11;
@@ -145,9 +140,9 @@
             margin: 30px 0;
             border-left: 4px solid #AD1B11;
         }
-
     </style>
 </head>
+
 <body>
     <div class="header">
         <h1>QR Code Scanner</h1>
@@ -155,12 +150,11 @@
 
     <div class="camera-container">
         <video id="video" autoplay muted playsinline></video>
-        
+
         <div class="controls">
             <button id="toggleBtn" class="btn-primary">Start Camera</button>
         </div>
 
-        <div class="status" id="status">Click "Start Camera" to begin scanning</div>
 
         <div id="result" class="result-container" style="display: none;">
             <h3>Scan Result:</h3>
@@ -173,4 +167,5 @@
     <script src="https://unpkg.com/@zxing/library@latest/umd/index.min.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>
