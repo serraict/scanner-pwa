@@ -54,11 +54,13 @@
         }
 
         #video {
-            width: 100%;
+            width: 90vw;
             max-width: 400px;
+            max-height: 30vh;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             margin-bottom: 1rem;
+            object-fit: cover;
         }
 
         .controls {
@@ -144,7 +146,7 @@
             border-left: 4px solid #AD1B11;
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
             body {
                 font-size: 16px;
             }
@@ -155,12 +157,6 @@
             
             .camera-container {
                 padding: 15px;
-            }
-            
-            #video {
-                max-width: min(300px, 70vw);
-                max-height: 40vh;
-                object-fit: cover;
             }
             
             .controls {
@@ -177,22 +173,6 @@
             .result-container {
                 padding: 15px;
                 margin-top: 15px;
-            }
-        }
-
-        @media (max-width: 480px) and (orientation: portrait) {
-            #video {
-                max-width: min(280px, 65vw);
-                max-height: 35vh;
-            }
-            
-            .camera-container {
-                padding: 10px 15px;
-            }
-            
-            .status {
-                margin: 15px 0;
-                font-size: 0.9rem;
             }
         }
     </style>
